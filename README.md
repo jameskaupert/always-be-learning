@@ -1,4 +1,4 @@
-# _Learning
+# _learning
 A collection of stuff from courses, blogs, and videos that I've consumed, or projects
 I've started with the intent of prototyping before formalizing into a real effort.
 
