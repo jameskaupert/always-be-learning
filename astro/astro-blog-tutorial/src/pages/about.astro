@@ -1,12 +1,52 @@
 ---
+const pageTitle = "About Me"
+
+const identity = {
+    firstName: "James",
+    country: "America",
+    occupation: "Software Developer",
+    hobbies: ["Dancing", "Gaming"]
+}
+
+const skills = ["TypeScript", "AWS", "Python", "Go"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{pageTitle}</title>
+    </head>
 <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <h1>About Me</h1>
+    <h1>{pageTitle}</h1>
     <h2>...and this cool Astro site hosted on Netlify!</h2>
 
     <p>This is some placeholder text while I work through the tutorial steps.</p>
     <p>So far, things are cool!</p>
-</body>
+
+    <p>Here are a few things about me:</p>
+        <ul>
+            <li>My name is {identity.firstName}.</li>
+            <li>I live in {identity.country}.</li>
+            {identity.hobbies.length >= 2 &&
+                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+            }
+        </ul>
+
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill => <li>{skill}</li>))}
+        </ul>
+
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial.</p>}
+
+        {goal === 3 ? <p>My goal is to finish in 3 hours.</p> : <p>My goal is not 3 hours.</p>}
+</body></html>
