@@ -1,19 +1,8 @@
 ---
 import '../styles/global.css'
-import Footer from '../components/Footer.astro'
-import Header from '../components/Header.astro'
-
-const pageTitle = "Blog"
+import BaseLayout from '../layouts/BaseLayout.astro'
 ---
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <title>{pageTitle}</title>
-    </head>
-<body>
-    <Header />
-    <h1>{pageTitle}</h1>
+<BaseLayout>
     <p>Some things about learning Astro, in public.</p>
     <p>Always be learning, folks!</p>
 
@@ -22,6 +11,4 @@ const pageTitle = "Blog"
         <li><a href="/posts/post-2">Post 2</a></li>
         <li><a href="/posts/post-3">Post 3</a></li>
     </ul>
-    <Footer />
-</body>
-</html>
+</BaseLayout>
