@@ -1,0 +1,17 @@
+---
+- name: zsh
+  block:
+  - name: zsh - install
+    pacman:
+      name: zsh
+      state: present
+
+  - name: zsh - set shell
+    shell:
+      cmd: "chsh -s $(which zsh) {{ local_user }}"
+
+  - name: oh-my-posh - install
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.shell: >
+      curl -s https://ohmyposh.dev/install.sh | bash -s

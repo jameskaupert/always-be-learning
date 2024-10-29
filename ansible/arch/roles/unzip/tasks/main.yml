@@ -1,0 +1,5 @@
+---
+- name: unzip
+  pacman:
+    name: unzip
+    state: present

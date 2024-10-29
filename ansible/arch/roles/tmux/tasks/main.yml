@@ -1,0 +1,14 @@
+---
+- name: tmux
+  block:
+  - name: tmux - Install
+    pacman:
+      name: tmux
+      state: present
+
+  - name: tmux - Install tmux plugin manager
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.git:
+      repo: https://github.com/tmux-plugins/tpm
+      dest: $HOME/.tmux/plugins/tpm

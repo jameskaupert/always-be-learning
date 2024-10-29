@@ -8,10 +8,16 @@
     - group_vars/all
   become: true
   roles:
+    - { role: unzip, tags: ['unzip'] }
+    - { role: eza, tags: ['eza'] }
+    - { role: fzf, tags: ['fzf'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
+    - { role: zsh, tags: ['zsh'] }
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
     - { role: qutebrowser, tags: ['qutebrowser'] }
     - { role: obsidian, tags: ['obsidian'] }
+    - { role: tmux, tags: ['tmux'] }
+

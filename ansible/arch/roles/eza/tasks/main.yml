@@ -1,0 +1,5 @@
+---
+- name: eza
+  pacman:
+    name: eza
+    state: present
