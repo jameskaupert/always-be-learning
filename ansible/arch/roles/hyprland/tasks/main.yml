@@ -13,6 +13,15 @@
         - linux-headers
         - glfw-wayland
         - gtk3
+        - pipewire
+        - wireplumber
+        - xdg-desktop-portal-hyprland
+        - xdg-desktop-portal-gtk
+        - mako
+        - qt5-wayland
+        - qt6-wayland
+        - wofi
+        - waybar
       state: present
 
   - name: Hyprland - Ensure NVIDIA config directory exists

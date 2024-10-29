@@ -1,0 +1,5 @@
+---
+- name: OBS Studio - Install
+  pacman:
+    name: obs-studio
+    state: present

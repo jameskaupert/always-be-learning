@@ -1,5 +1,0 @@
----
-- name: wofi
-  pacman:
-    name: wofi
-    state: present

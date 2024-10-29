@@ -1,0 +1,5 @@
+---
+- name: pavucontrol - Install
+  pacman:
+    name: pavucontrol
+    state: present

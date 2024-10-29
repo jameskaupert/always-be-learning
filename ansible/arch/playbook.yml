@@ -24,4 +24,5 @@
     - { role: qutebrowser, tags: ['qutebrowser'] }
     - { role: obsidian, tags: ['obsidian'] }
     - { role: tmux, tags: ['tmux'] }
-    - { role: wofi, tags: ['wofi'] }
+    - { role: pavucontrol, tags: ['pavucontrol'] }
+    - { role: obs-studio, tags: ['obs-studio'] }
