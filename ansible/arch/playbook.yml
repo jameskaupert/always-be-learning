@@ -13,6 +13,7 @@
     - { role: fzf, tags: ['fzf'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: go, tags: ['go'] }
+    - { role: nodejs, tags: ['nodejs'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
     - { role: zsh, tags: ['zsh'] }

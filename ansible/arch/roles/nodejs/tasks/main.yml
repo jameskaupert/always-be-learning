@@ -1,0 +1,21 @@
+---
+- name: Node - Install
+  block:
+  - name: NVM - Install
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.shell: >
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    args:
+      executable: /bin/bash
+      chdir: "$HOME"
+      creates: "$HOME/.nvm/nvm.sh"
+
+  - name: Node - Install LTS
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.shell: |
+      . $HOME/.nvm/nvm.sh && nvm install --lts
+    args:
+      executable: /bin/bash
+      chdir: "$HOME"
