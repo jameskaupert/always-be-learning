@@ -13,3 +13,5 @@
     - { role: kitty, tags: ['kitty'] }
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
+    - { role: qutebrowser, tags: ['qutebrowser'] }
+    - { role: obsidian, tags: ['obsidian'] }

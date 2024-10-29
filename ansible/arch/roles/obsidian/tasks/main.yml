@@ -1,0 +1,5 @@
+---
+- name: Obsidian
+  pacman:
+    name: obsidian
+    state: present

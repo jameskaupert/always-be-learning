@@ -1,0 +1,5 @@
+---
+- name: Qutebrowser
+  pacman:
+    name: qutebrowser
+    state: present
