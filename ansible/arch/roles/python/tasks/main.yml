@@ -1,0 +1,5 @@
+---
+- name: Pyenv - Install
+  pacman:
+    name: pyenv
+    state: present

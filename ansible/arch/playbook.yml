@@ -14,6 +14,8 @@
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: go, tags: ['go'] }
     - { role: nodejs, tags: ['nodejs'] }
+    - { role: python, tags: ['python'] }
+    - { role: rust, tags: ['rust'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
     - { role: zsh, tags: ['zsh'] }
