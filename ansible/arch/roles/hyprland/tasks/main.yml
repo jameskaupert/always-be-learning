@@ -1,0 +1,27 @@
+---
+- name: Hyprland
+  block:
+  - name: Hyprland - Install (including deps)
+    pacman:
+      name:
+        - hyprland
+        - hypridle
+        - hyprlock
+        - nvidia-dkms
+        - nvidia-utils
+        - egl-wayland
+        - linux-headers
+        - glfw-wayland
+        - gtk3
+      state: present
+
+  - name: Hyprland - Ensure NVIDIA config directory exists
+    file:
+      path: /etc/modprobe.d
+      recurse: true
+      state: directory
+
+  - name: Hyprland - Copy NVIDIA config
+    copy:
+      src: nvidia.conf
+      dest: /etc/modprobe.d

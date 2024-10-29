@@ -3,4 +3,5 @@
   become: true
   roles:
     - { role: fonts, tags: ['fonts'] }
+    - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
