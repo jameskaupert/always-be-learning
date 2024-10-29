@@ -1,0 +1,31 @@
+---
+- name: Dotfiles
+  block:
+  - name: Dotfiles - Install stow
+    pacman:
+      name: stow
+      state: present
+
+  - name: Dotfiles - Get Repo
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.git:
+      repo: "{{ dotfiles.repo_https }}"
+      dest: "$HOME/dotfiles"
+      force: yes
+
+  - name: Dotfiles - Install
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.command:
+    args:
+      cmd: "{{ dotfiles.cmd }}"
+      chdir: "$HOME/dotfiles"
+
+  - name: Dotfiles - Set to use SSH
+    become: true
+    become_user: "{{ local_user }}"
+    ansible.builtin.command:
+    args:
+      cmd: git remote set-url origin {{ dotfiles.repo_ssh }}
+      chdir: "$HOME/dotfiles"

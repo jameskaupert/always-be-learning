@@ -1,0 +1,6 @@
+---
+- name: Kitty
+  pacman:
+    name: kitty
+    state: present
+

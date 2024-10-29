@@ -1,7 +1,15 @@
 ---
 - hosts: localhost
+  vars_prompt:
+    - name: local_user
+      prompt: "Local User"
+      private: false
+  vars_files:
+    - group_vars/all
   become: true
   roles:
+    - { role: dotfiles, tags: ['dotfiles'] }
     - { role: fonts, tags: ['fonts'] }
+    - { role: kitty, tags: ['kitty'] }
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }

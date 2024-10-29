@@ -25,3 +25,12 @@
     copy:
       src: nvidia.conf
       dest: /etc/modprobe.d
+
+  - name: Hyprland - Enable seatd
+    ansible.builtin.systemd_service:
+      name: seatd
+      enabled: true
+
+  - name: Hyprland - Add user to seat group
+    ansible.builtin.command:
+      cmd: "usermod -aG seat {{ local_user }}"
