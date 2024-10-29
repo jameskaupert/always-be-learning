@@ -1,0 +1,5 @@
+---
+- name: ripgrep
+  pacman:
+    name: ripgrep
+    state: present

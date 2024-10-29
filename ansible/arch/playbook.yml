@@ -1,17 +1,18 @@
 ---
 - hosts: localhost
-  vars_prompt:
-    - name: local_user
-      prompt: "Local User"
-      private: false
   vars_files:
     - group_vars/all
   become: true
   roles:
+    - { role: systemd, tags: ['systemd'] }
     - { role: unzip, tags: ['unzip'] }
+    - { role: ripgrep, tags: ['ripgrep'] }
+    - { role: ffmpeg, tags: ['ffmpeg'] }
+    - { role: btop, tags: ['btop'] }
     - { role: eza, tags: ['eza'] }
     - { role: fzf, tags: ['fzf'] }
     - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: go, tags: ['go'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
     - { role: zsh, tags: ['zsh'] }

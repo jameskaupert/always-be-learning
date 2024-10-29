@@ -1,0 +1,4 @@
+---
+- name: DNS Resolution
+  ansible.builtin.command:
+    cmd: ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf

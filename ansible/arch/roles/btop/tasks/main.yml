@@ -1,0 +1,5 @@
+---
+- name: btop - Install
+  pacman:
+    name: btop
+    state: present

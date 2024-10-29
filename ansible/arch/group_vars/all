@@ -2,3 +2,5 @@ dotfiles:
   repo_https: https://github.com/jameskaupert/dotfiles.git
   repo_ssh: git@github.com:jameskaupert/dotfiles.git
   cmd: ./install.sh
+
+local_user: localuser

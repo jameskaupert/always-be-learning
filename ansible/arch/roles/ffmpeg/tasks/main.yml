@@ -1,0 +1,5 @@
+---
+- name: ffmpeg - install
+  pacman:
+    name: ffmpeg
+    state: present

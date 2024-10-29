@@ -1,0 +1,9 @@
+---
+- name: Go - Install
+  pacman:
+    name: go
+    state: present
+
+- name: godoc - Install
+  ansible.builtin.command:
+    cmd: go install golang.org/x/tools/cmd/godoc@latest
