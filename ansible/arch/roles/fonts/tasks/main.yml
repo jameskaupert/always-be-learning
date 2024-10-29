@@ -1,0 +1,15 @@
+---
+- name: Go Mono
+  pacman:
+    name: ttf-go-nerd
+    state: present
+
+- name: Overpass
+  pacman:
+    name: otf-overpass-nerd
+    state: present
+
+- name: FontAwesome
+  pacman:
+    name: ttf-font-awesome
+    state: present

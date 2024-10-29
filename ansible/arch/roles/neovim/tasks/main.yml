@@ -1,0 +1,7 @@
+---
+- name: Neovim
+  block:
+  - name: Neovim - Install
+    pacman:
+      name: neovim
+      state: present

@@ -1,2 +1,6 @@
 ---
 - hosts: localhost
+  become: true
+  roles:
+    - { role: fonts, tags: ['fonts'] }
+    - { role: neovim, tags: ['neovim'] }
