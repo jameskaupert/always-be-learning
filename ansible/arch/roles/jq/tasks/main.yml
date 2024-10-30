@@ -1,0 +1,5 @@
+---
+- name: jq - Install
+  pacman:
+    name: jq
+    state: present

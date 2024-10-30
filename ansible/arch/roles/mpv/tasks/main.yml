@@ -1,0 +1,5 @@
+---
+- name: mpv
+  pacman:
+    name: mpv
+    state: present

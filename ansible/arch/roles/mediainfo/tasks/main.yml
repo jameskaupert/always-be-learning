@@ -1,0 +1,5 @@
+---
+- name: mediainfo
+  pacman:
+    name: mediainfo
+    state: present
