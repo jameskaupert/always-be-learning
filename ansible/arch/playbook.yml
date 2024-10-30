@@ -17,6 +17,7 @@
     - { role: fd, tags: ['fd'] }
     - { role: mediainfo, tags: ['mediainfo'] }
     - { role: mpv, tags: ['mpv'] }
+    - { role: swappy, tags: ['swappy'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: go, tags: ['go'] }
     - { role: nodejs, tags: ['nodejs'] }
