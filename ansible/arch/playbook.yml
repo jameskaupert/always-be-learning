@@ -4,6 +4,7 @@
     - group_vars/all
   become: true
   roles:
+    - { role: base, tags: ['base'] }
     - { role: systemd, tags: ['systemd'] }
     - { role: unzip, tags: ['unzip'] }
     - { role: ripgrep, tags: ['ripgrep'] }

@@ -4,3 +4,6 @@ dotfiles:
   cmd: ./install.sh
 
 local_user: localuser
+
+workspace:
+  path: $HOME/workspace/github.com/jameskaupert
