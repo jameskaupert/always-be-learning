@@ -11,6 +11,7 @@
     - { role: btop, tags: ['btop'] }
     - { role: eza, tags: ['eza'] }
     - { role: fzf, tags: ['fzf'] }
+    - { role: yazi, tags: ['yazi'] }
     - { role: dotfiles, tags: ['dotfiles'] }
     - { role: go, tags: ['go'] }
     - { role: nodejs, tags: ['nodejs'] }
@@ -22,6 +23,7 @@
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
     - { role: qutebrowser, tags: ['qutebrowser'] }
+    - { role: firefox, tags: ['firefox'] }
     - { role: obsidian, tags: ['obsidian'] }
     - { role: tmux, tags: ['tmux'] }
     - { role: pavucontrol, tags: ['pavucontrol'] }

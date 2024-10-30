@@ -1,0 +1,16 @@
+---
+- name: Firefox - Install
+  pacman:
+    name: firefox-developer-edition
+    state: present
+
+- name: Ensure directory exists
+  file:
+    path: /etc/firefox/policies
+    recurse: true
+    state: directory
+
+- name: Copy policies.json
+  copy:
+    src: policies.json
+    dest: /etc/firefox/policies
