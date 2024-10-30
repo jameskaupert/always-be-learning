@@ -1,0 +1,5 @@
+---
+- name: GIMP - Install
+  pacman:
+    name: gimp
+    state: present

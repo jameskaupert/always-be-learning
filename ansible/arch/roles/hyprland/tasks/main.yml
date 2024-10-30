@@ -24,6 +24,8 @@
         - qt6-wayland
         - wofi
         - waybar
+        - wl-clipboard
+        - cliphist
       state: present
 
   - name: Hyprland - Ensure NVIDIA config directory exists
