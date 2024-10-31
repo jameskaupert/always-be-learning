@@ -11,8 +11,9 @@ import {
   generateHuePalette,
   generateHueLightnessPalette 
 } from '@/lib/color-utils'
+import { BASE_COLOR } from '@/lib/color-config'
 
-const baseColor = 'oklch(50% 0.08 302)'
+const baseColor = BASE_COLOR
 
 export default function Home() {
   const [colorCount, setColorCount] = useState(16)
@@ -42,32 +43,37 @@ export default function Home() {
 
   return (
     <main className="container mx-auto py-8 px-4 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-8">
+      <h1 
+        className="text-3xl font-bold mb-8"
+        style={{ color: currentColor }}
+      >
         OKLCH Color Palette Generator
       </h1>
       <div className="space-y-8">
-        <div className="flex gap-4 items-end">
+        <div className="flex gap-4 items-start">
           <div className="flex-1">
             <ColorInput 
               onColorChange={handleColorChange}
               initialColor={currentColor}
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="colorCount">
-              Colors per palette
-            </Label>
-            <Input
-              id="colorCount"
-              type="number"
-              min="2"
-              max="32"
-              value={colorCount}
-              onChange={(e) => setColorCount(Math.max(2, Math.min(32, Number(e.target.value))))}
-              className="w-20"
-            />
-          </div>
         </div>
+
+        <div className="flex items-center gap-4">
+          <Label htmlFor="colorCount" className="whitespace-nowrap">
+            Colors per palette
+          </Label>
+          <Input
+            id="colorCount"
+            type="number"
+            min="2"
+            max="32"
+            value={colorCount}
+            onChange={(e) => setColorCount(Math.max(2, Math.min(32, Number(e.target.value))))}
+            className="w-20"
+          />
+        </div>
+
         <Card>
           <CardContent className="pt-6">
             <PaletteTabs 

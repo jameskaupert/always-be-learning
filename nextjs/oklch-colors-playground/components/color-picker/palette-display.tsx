@@ -60,21 +60,21 @@ export function PaletteDisplay({ colors }: PaletteDisplayProps) {
             <Button
               variant="secondary"
               onClick={() => copyToClipboard(formattedOklch)}
-              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
+              className="h-auto py-2 px-3 font-mono text-xs text-center bg-background/90 hover:bg-background/95 w-full"
             >
               {formattedOklch}
             </Button>
             <Button
               variant="secondary"
               onClick={() => copyToClipboard(hex)}
-              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
+              className="h-auto py-2 px-3 font-mono text-xs text-center bg-background/90 hover:bg-background/95 w-full"
             >
               {hex}
             </Button>
             <Button
               variant="secondary"
               onClick={() => copyToClipboard(rgb)}
-              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
+              className="h-auto py-2 px-3 font-mono text-xs text-center bg-background/90 hover:bg-background/95 w-full"
             >
               {rgb}
             </Button>
