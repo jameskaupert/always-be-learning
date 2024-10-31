@@ -15,7 +15,7 @@ export default function Home() {
   const [hueLightnessPalette, setHueLightnessPalette] = useState<string[]>([])
 
   useEffect(() => {
-    const initialColor = 'oklch(60% 0.15 270)'
+    const initialColor = 'oklch(50% 0.08 320)'
     setLightnessPalette(generateLightnessPalette(initialColor))
     setHuePalette(generateHuePalette(initialColor))
     setHueLightnessPalette(generateHueLightnessPalette(initialColor))
