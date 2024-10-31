@@ -12,8 +12,9 @@ export function PaletteDisplay({ colors }: PaletteDisplayProps) {
   const formatOklch = (color: string) => {
     const match = color.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/)
     if (match) {
+      const precision = 3
       const [_, l, c, h] = match
-      return `oklch(${Number(l).toFixed(2)} ${Number(c).toFixed(2)} ${Number(h).toFixed(2)})`
+      return `oklch(${Number(l).toFixed(precision)} ${Number(c).toFixed(precision)} ${Number(h).toFixed(precision)})`
     }
     return color
   }

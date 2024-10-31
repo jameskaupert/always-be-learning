@@ -78,7 +78,7 @@ export function generateHueLightnessPalette(baseColor: string, count: number = 1
   return Array.from({ length: count }, (_, i) => {
     const hue = (color.h + (i * (360 / count))) % 360
     const hueRad = (hue - 85) * (Math.PI / 180)
-    const lightness = 0.65 + (0.1 * Math.sin(hueRad))
+    const lightness = 0.65 + (0.12 * Math.cos(hueRad))
     
     const newColor = oklch({
       mode: 'oklch',

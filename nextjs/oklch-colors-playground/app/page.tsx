@@ -9,7 +9,7 @@ import {
   generateHueLightnessPalette 
 } from '@/lib/color-utils'
 
-const baseColor = 'oklch(50% 0.08 320)'
+const baseColor = 'oklch(50% 0.08 302)'
 
 export default function Home() {
   const [colorCount, setColorCount] = useState(16)
