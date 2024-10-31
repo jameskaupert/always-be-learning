@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { isValidOklch } from '@/lib/color-utils'
 
 interface ColorInputProps {
@@ -25,16 +27,18 @@ export function ColorInput({ onColorChange, initialColor = 'oklch(60% 0.15 270)'
   }
 
   return (
-    <div className="space-y-2">
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        className={`w-full px-4 py-2 rounded-md border ${
-          isValid ? 'border-border' : 'border-destructive'
-        } font-mono text-sm`}
-        placeholder="oklch(60% 0.15 270)"
-      />
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <Label htmlFor="color-input">OKLCH Color</Label>
+        <Input
+          id="color-input"
+          type="text"
+          value={value}
+          onChange={handleChange}
+          className={`font-mono ${!isValid && 'border-destructive focus-visible:ring-destructive'}`}
+          placeholder="oklch(60% 0.15 270)"
+        />
+      </div>
       <div 
         className="w-full h-20 rounded-md transition-colors"
         style={{ backgroundColor: isValid ? value : '#ff0000' }}

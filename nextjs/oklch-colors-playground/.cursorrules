@@ -26,6 +26,7 @@
 
     ### UI and Styling
     - Use modern UI frameworks (e.g., Tailwind CSS, Shadcn UI) for styling.
+    - Use the newer shadcn install syntax for components.
     - Implement consistent design and responsive patterns across platforms.
 
     ### State Management and Data Fetching

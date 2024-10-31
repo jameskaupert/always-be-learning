@@ -2,7 +2,10 @@
 
 import { useState, useEffect } from 'react'
 import { ColorInput } from '@/components/color-picker/color-input'
-import { PaletteDisplay } from '@/components/color-picker/palette-display'
+import { PaletteTabs } from '@/components/color-picker/palette-tabs'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Card, CardContent } from '@/components/ui/card'
 import { 
   generateLightnessPalette, 
   generateHuePalette,
@@ -24,12 +27,10 @@ export default function Home() {
     setHueLightnessPalette(generateHueLightnessPalette(color, count))
   }
 
-  // Initial setup
   useEffect(() => {
     updatePalettes(currentColor, colorCount)
   }, [])
 
-  // Handle color count changes
   useEffect(() => {
     updatePalettes(currentColor, colorCount)
   }, [colorCount])
@@ -53,34 +54,29 @@ export default function Home() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="colorCount" className="block text-sm font-medium">
+            <Label htmlFor="colorCount">
               Colors per palette
-            </label>
-            <input
+            </Label>
+            <Input
               id="colorCount"
               type="number"
               min="2"
               max="32"
               value={colorCount}
               onChange={(e) => setColorCount(Math.max(2, Math.min(32, Number(e.target.value))))}
-              className="w-20 px-3 py-2 rounded-md border border-border"
+              className="w-20"
             />
           </div>
         </div>
-        <div className="space-y-6">
-          <section>
-            <h2 className="text-xl font-semibold mb-4">Lightness Variations</h2>
-            <PaletteDisplay colors={lightnessPalette} />
-          </section>
-          <section>
-            <h2 className="text-xl font-semibold mb-4">Hue Variations</h2>
-            <PaletteDisplay colors={huePalette} />
-          </section>
-          <section>
-            <h2 className="text-xl font-semibold mb-4">Balanced Hue-Lightness Wheel</h2>
-            <PaletteDisplay colors={hueLightnessPalette} />
-          </section>
-        </div>
+        <Card>
+          <CardContent className="pt-6">
+            <PaletteTabs 
+              lightnessPalette={lightnessPalette}
+              huePalette={huePalette}
+              hueLightnessPalette={hueLightnessPalette}
+            />
+          </CardContent>
+        </Card>
       </div>
     </main>
   )

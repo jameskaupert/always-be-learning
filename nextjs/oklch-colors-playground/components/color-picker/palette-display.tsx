@@ -1,20 +1,28 @@
 'use client'
 
+import { Button } from "@/components/ui/button"
+import { useToast } from "@/hooks/use-toast"
+
 interface PaletteDisplayProps {
   colors: string[]
 }
 
 export function PaletteDisplay({ colors }: PaletteDisplayProps) {
+  const { toast } = useToast()
+
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value)
+    toast({
+      description: "Color value copied to clipboard",
+      duration: 2000,
+    })
   }
 
   const formatOklch = (color: string) => {
     const match = color.match(/oklch\(([\d.]+)\s+([\d.]+)\s+([\d.]+)\)/)
     if (match) {
-      const precision = 3
       const [_, l, c, h] = match
-      return `oklch(${Number(l).toFixed(precision)} ${Number(c).toFixed(precision)} ${Number(h).toFixed(precision)})`
+      return `oklch(${Number(l).toFixed(2)} ${Number(c).toFixed(2)} ${Number(h).toFixed(2)})`
     }
     return color
   }
@@ -49,24 +57,27 @@ export function PaletteDisplay({ colors }: PaletteDisplayProps) {
             className="h-auto aspect-video rounded-md relative p-3 flex flex-col justify-between gap-2"
             style={{ backgroundColor: color }}
           >
-            <button
+            <Button
+              variant="secondary"
               onClick={() => copyToClipboard(formattedOklch)}
-              className="bg-background/90 text-foreground px-3 py-2 rounded text-xs font-mono text-left hover:bg-background/95 transition-colors"
+              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
             >
               {formattedOklch}
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="secondary"
               onClick={() => copyToClipboard(hex)}
-              className="bg-background/90 text-foreground px-3 py-2 rounded text-xs font-mono text-left hover:bg-background/95 transition-colors"
+              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
             >
               {hex}
-            </button>
-            <button
+            </Button>
+            <Button
+              variant="secondary"
               onClick={() => copyToClipboard(rgb)}
-              className="bg-background/90 text-foreground px-3 py-2 rounded text-xs font-mono text-left hover:bg-background/95 transition-colors"
+              className="h-auto py-2 px-3 font-mono text-xs text-left bg-background/90 hover:bg-background/95 w-full justify-start"
             >
               {rgb}
-            </button>
+            </Button>
           </div>
         )
       })}
