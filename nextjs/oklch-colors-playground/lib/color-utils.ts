@@ -30,15 +30,15 @@ export function generatePalette(baseColor: string): string[] {
   })
 }
 
-export function generateLightnessPalette(baseColor: string): string[] {
+export function generateLightnessPalette(baseColor: string, count: number = 16): string[] {
   const color = oklch(baseColor) as OklchColor | null
   if (!color) {
     console.warn(`Invalid color: ${baseColor}`)
     return []
   }
 
-  return Array.from({ length: 9 }, (_, i) => {
-    const lightness = Math.max(0.1, Math.min(0.95 - (i * 0.1), 0.95))
+  return Array.from({ length: count }, (_, i) => {
+    const lightness = Math.max(0.1, Math.min(0.95 - (i * (0.85 / (count - 1))), 0.95))
     const newColor = oklch({
       mode: 'oklch',
       l: lightness,
@@ -49,15 +49,15 @@ export function generateLightnessPalette(baseColor: string): string[] {
   })
 }
 
-export function generateHuePalette(baseColor: string): string[] {
+export function generateHuePalette(baseColor: string, count: number = 16): string[] {
   const color = oklch(baseColor) as OklchColor | null
   if (!color) {
     console.warn(`Invalid color: ${baseColor}`)
     return []
   }
 
-  return Array.from({ length: 16 }, (_, i) => {
-    const hue = (color.h + (i * 22.5)) % 360 // 360/16 = 22.5 degrees per step
+  return Array.from({ length: count }, (_, i) => {
+    const hue = (color.h + (i * (360 / count))) % 360
     const newColor = oklch({
       mode: 'oklch',
       l: color.l,
@@ -68,20 +68,16 @@ export function generateHuePalette(baseColor: string): string[] {
   })
 }
 
-export function generateHueLightnessPalette(baseColor: string): string[] {
+export function generateHueLightnessPalette(baseColor: string, count: number = 16): string[] {
   const color = oklch(baseColor) as OklchColor | null
   if (!color) {
     console.warn(`Invalid color: ${baseColor}`)
     return []
   }
 
-  return Array.from({ length: 16 }, (_, i) => {
-    const hue = (color.h + (i * 22.5)) % 360 // 360/16 = 22.5 degrees per step
-    
-    // Adjust the phase and amplitude of the sine wave
-    // Center around yellow (80°) and blue (270°)
-    const hueRad = (hue - 80) * (Math.PI / 180)
-    // Base lightness of 0.65 with ±0.1 variation (smaller range)
+  return Array.from({ length: count }, (_, i) => {
+    const hue = (color.h + (i * (360 / count))) % 360
+    const hueRad = (hue - 85) * (Math.PI / 180)
     const lightness = 0.65 + (0.1 * Math.sin(hueRad))
     
     const newColor = oklch({
