@@ -5,7 +5,7 @@ import { ColorInput } from '@/components/color-picker/color-input'
 import { PaletteTabs } from '@/components/color-picker/palette-tabs'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Card, CardContent } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { 
   generateLightnessPalette, 
   generateHuePalette,
@@ -43,21 +43,25 @@ export default function Home() {
 
   return (
     <main className="container mx-auto py-8 px-4 max-w-4xl">
-      <h1 
-        className="text-3xl font-bold mb-8"
-        style={{ color: currentColor }}
-      >
-        OKLCH Color Palette Generator
-      </h1>
-      <div className="space-y-8">
-        <div className="flex gap-4 items-start">
-          <div className="flex-1">
+      <div className="max-w-4xl mx-auto p-6 space-y-8">
+        <h1 className="text-3xl font-bold" style={{ color: currentColor }}>
+          OKLCH Color Palette Generator
+        </h1>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Base Color</CardTitle>
+            <CardDescription>
+              Adjust the lightness, chroma, and hue to set your base color for palette generation
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
             <ColorInput 
-              onColorChange={handleColorChange}
-              initialColor={currentColor}
+              onColorChange={handleColorChange} 
+              initialColor={currentColor} 
             />
-          </div>
-        </div>
+          </CardContent>
+        </Card>
 
         <div className="flex items-center gap-4">
           <Label htmlFor="colorCount" className="whitespace-nowrap">
@@ -75,8 +79,14 @@ export default function Home() {
         </div>
 
         <Card>
-          <CardContent className="pt-6">
-            <PaletteTabs 
+          <CardHeader>
+            <CardTitle>Color Palettes</CardTitle>
+            <CardDescription>
+              Different variations of your base color
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <PaletteTabs
               lightnessPalette={lightnessPalette}
               huePalette={huePalette}
               hueLightnessPalette={hueLightnessPalette}

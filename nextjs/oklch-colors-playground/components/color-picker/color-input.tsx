@@ -7,6 +7,7 @@ import { isValidOklch } from '@/lib/color-utils'
 import { getTextColor } from '@/lib/color-config'
 import { BASE_COLOR } from '@/lib/color-config'
 import { cn } from '@/lib/utils'
+import { Input } from "@/components/ui/input"
 
 interface ColorInputProps {
   onColorChange: (color: string) => void
@@ -52,6 +53,19 @@ export function ColorInput({ onColorChange, initialColor = BASE_COLOR }: ColorIn
     }
   }
 
+  const handleInputChange = (key: keyof OklchComponents, value: string) => {
+    const numericValue = parseFloat(value)
+    if (!isNaN(numericValue)) {
+      const clampedValue = key === 'lightness' 
+        ? Math.min(100, Math.max(0, numericValue))
+        : key === 'chroma'
+        ? Math.min(0.4, Math.max(0, numericValue))
+        : Math.min(360, Math.max(0, numericValue))
+
+      handleComponentChange(key, clampedValue)
+    }
+  }
+
   const colorString = constructOklchString(components)
   const isValid = isValidOklch(colorString)
   const textColor = getTextColor(colorString)
@@ -62,19 +76,25 @@ export function ColorInput({ onColorChange, initialColor = BASE_COLOR }: ColorIn
         <div className="space-y-4">
           {['lightness', 'chroma', 'hue'].map((param) => (
             <div key={param} className="space-y-2">
-              <div className="flex justify-between">
-                <Label 
-                  htmlFor={param}
-                >
+              <div className="flex justify-between items-center gap-4">
+                <Label htmlFor={param}>
                   {param.charAt(0).toUpperCase() + param.slice(1)}
                 </Label>
-                <span 
-                  className="text-sm text-muted-foreground"
-                >
-                  {param === 'lightness' && `${components[param].toFixed(2)}%`}
-                  {param === 'chroma' && components[param].toFixed(3)}
-                  {param === 'hue' && `${components[param].toFixed(1)}°`}
-                </span>
+                <Input
+                  type="number"
+                  value={
+                    param === 'lightness' 
+                      ? components[param as keyof OklchComponents].toFixed(2)
+                      : param === 'chroma'
+                      ? components[param as keyof OklchComponents].toFixed(3)
+                      : components[param as keyof OklchComponents].toFixed(1)
+                  }
+                  onChange={(e) => handleInputChange(param as keyof OklchComponents, e.target.value)}
+                  className="w-24 h-8 text-right font-mono text-sm [appearance:textfield] [&::-webkit-outer-spin-button]:pr-4 [&::-webkit-inner-spin-button]:pr-4"
+                  min={0}
+                  max={param === 'lightness' ? 100 : param === 'chroma' ? 0.4 : 360}
+                  step={param === 'lightness' ? 0.01 : param === 'chroma' ? 0.001 : 0.5}
+                />
               </div>
               <Slider
                 id={param}
