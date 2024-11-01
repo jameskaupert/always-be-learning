@@ -18,6 +18,8 @@
         - pipewire-pulse
         - pavucontrol
         - wireplumber
+        - grim
+        - slurp
         - polkit
         - rtkit
         - xdg-desktop-portal-hyprland
