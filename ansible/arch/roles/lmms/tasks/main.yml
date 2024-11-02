@@ -1,0 +1,5 @@
+---
+- name: LMMS
+  pacman:
+    name: lmms
+    state: present

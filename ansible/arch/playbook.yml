@@ -35,4 +35,5 @@
     - { role: obs-studio, tags: ['obs-studio'] }
     - { role: vlc, tags: ['vlc'] }
     - { role: gimp, tags: ['gimp'] }
+    - { role: lmms, tags: ['lmms'] }
 
