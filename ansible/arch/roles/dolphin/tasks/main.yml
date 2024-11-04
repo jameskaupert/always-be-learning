@@ -1,0 +1,5 @@
+---
+- name: Dolphin
+  pacman:
+    name: dolphin
+    state: present

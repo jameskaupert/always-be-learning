@@ -31,6 +31,9 @@
         - waybar
         - wl-clipboard
         - cliphist
+        - greetd
+        - greetd-regreet
+        - cage
       state: present
 
   - name: Hyprland - Ensure NVIDIA config directory exists
@@ -47,6 +50,11 @@
   - name: Hyprland - Enable seatd
     ansible.builtin.systemd_service:
       name: seatd
+      enabled: true
+
+  - name: Hyprland - Enable greetd
+    ansible.builtin.systemd_service:
+      name: greetd
       enabled: true
 
   - name: Hyprland - Add user to seat group

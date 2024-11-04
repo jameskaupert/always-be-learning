@@ -28,6 +28,7 @@
     - { role: zsh, tags: ['zsh'] }
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
+    - { role: dolphin, tags: ['dolphin'] }
     - { role: qutebrowser, tags: ['qutebrowser'] }
     - { role: firefox, tags: ['firefox'] }
     - { role: obsidian, tags: ['obsidian'] }
