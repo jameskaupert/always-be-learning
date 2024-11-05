@@ -61,6 +61,10 @@
     ansible.builtin.command:
       cmd: "usermod -aG seat {{ local_user }}"
 
+  - name: Hyprland - Add greeter to seat & video groups
+    ansible.builtin.command:
+      cmd: "usermod -aG seat,video greeter"
+
   - name: Hyprland - Add user to input group
     ansible.builtin.command:
       cmd: "usermod -aG input {{ local_user }}"
