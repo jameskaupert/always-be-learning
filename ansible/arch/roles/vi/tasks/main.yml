@@ -1,0 +1,5 @@
+---
+- name: vi
+  pacman:
+    name: vi
+    state: present
