@@ -10,6 +10,7 @@
     - { role: ripgrep, tags: ['ripgrep'] }
     - { role: ffmpeg, tags: ['ffmpeg'] }
     - { role: btop, tags: ['btop'] }
+    - { role: bat, tags: ['bat'] }
     - { role: eza, tags: ['eza'] }
     - { role: fzf, tags: ['fzf'] }
     - { role: yazi, tags: ['yazi'] }

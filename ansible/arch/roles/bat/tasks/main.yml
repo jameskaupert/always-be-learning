@@ -1,0 +1,5 @@
+---
+- name: bat
+  pacman:
+    name: bat
+    state: present
