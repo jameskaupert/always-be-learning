@@ -39,4 +39,5 @@
     - { role: vlc, tags: ['vlc'] }
     - { role: gimp, tags: ['gimp'] }
     - { role: lmms, tags: ['lmms'] }
+    - { role: easyeffects, tags: ['easyeffects'] }
 

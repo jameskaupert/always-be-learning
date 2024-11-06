@@ -1,0 +1,8 @@
+---
+- name: easyeffects sound effects
+  pacman:
+    name:
+      - easyeffects
+      - calf
+      - lsp-plugins
+    state: present
