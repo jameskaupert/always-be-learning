@@ -1,0 +1,5 @@
+---
+- name: Discord
+  pacman:
+    name: discord
+    state: present
