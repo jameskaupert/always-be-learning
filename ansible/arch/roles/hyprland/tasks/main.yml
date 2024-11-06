@@ -17,6 +17,7 @@
         - pipewire-alsa
         - pipewire-pulse
         - pavucontrol
+        - pamixer
         - wireplumber
         - grim
         - slurp
