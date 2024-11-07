@@ -24,6 +24,7 @@
     - { role: nodejs, tags: ['nodejs'] }
     - { role: python, tags: ['python'] }
     - { role: rust, tags: ['rust'] }
+    - { role: aws, tags: ['aws'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
     - { role: zsh, tags: ['zsh'] }

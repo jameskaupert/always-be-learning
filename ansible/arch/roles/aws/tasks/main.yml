@@ -1,0 +1,26 @@
+---
+- name: AWS CLI
+  block:
+  - name: AWS CLI - Remove existing installation
+    ansible.builtin.file:
+      path: /usr/local/aws-cli
+      state: absent
+  - name: AWS CLI - Download & Unzip
+    ansible.builtin.unarchive:
+      src: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+      dest: "/tmp"
+      remote_src: true
+  - name: AWS CLI - Install
+    ansible.builtin.command:
+      cmd: ./aws/install
+      chdir: "/tmp"
+  - name: AWS CLI - Remove Installer
+    ansible.builtin.file:
+      path: "/tmp/aws"
+      state: absent
+
+- name: AWS CDK
+  become: true
+  become_user: "{{ local_user }}"
+  ansible.builtin.command:
+    cmd: npm install -g aws-cdk
