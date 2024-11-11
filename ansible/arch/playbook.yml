@@ -16,6 +16,7 @@
     - { role: yazi, tags: ['yazi'] }
     - { role: jq, tags: ['jq'] }
     - { role: fd, tags: ['fd'] }
+    - { role: zoxide, tags: ['zoxide'] }
     - { role: mediainfo, tags: ['mediainfo'] }
     - { role: mpv, tags: ['mpv'] }
     - { role: swappy, tags: ['swappy'] }
