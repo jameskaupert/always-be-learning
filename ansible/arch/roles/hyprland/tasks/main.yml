@@ -36,6 +36,7 @@
         - greetd
         - greetd-regreet
         - cage
+        - wev
       state: present
 
   - name: Hyprland - Ensure NVIDIA config directory exists
