@@ -69,3 +69,16 @@
   - name: Hyprland - Add user to input group
     ansible.builtin.command:
       cmd: "usermod -aG input {{ local_user }}"
+
+- name: Grimblast (screenshots)
+  block:
+  - name: Grimblast - Clone repo
+    ansible.builtin.git:
+      repo: https://github.com/hyprwm/contrib.git
+      dest: "/usr/local/hyprwm"
+      force: true
+  - name: Grimblast - make
+    ansible.builtin.shell: |
+      make install
+    args:
+      chdir: "/usr/local/hyprwm/grimblast"
