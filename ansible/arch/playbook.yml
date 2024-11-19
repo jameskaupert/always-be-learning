@@ -35,6 +35,7 @@
     - { role: dolphin, tags: ['dolphin'] }
     - { role: qutebrowser, tags: ['qutebrowser'] }
     - { role: firefox, tags: ['firefox'] }
+    - { role: chromium, tags: ['chromium'] }
     - { role: obsidian, tags: ['obsidian'] }
     - { role: tmux, tags: ['tmux'] }
     - { role: obs-studio, tags: ['obs-studio'] }

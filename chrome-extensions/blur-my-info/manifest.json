@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Blur My Info",
+  "version": "1.0",
+  "description": "Blur specific text on web pages",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
