@@ -1,19 +1,37 @@
-// Immediately inject both styles
-const immediateStyle = document.createElement('style');
-immediateStyle.textContent = `
-    body { filter: blur(5px) !important; }
-    .content-blur { 
-        filter: blur(5px) !important;
-        display: inline-block;
+// Check storage and manage blur immediately
+(async function() {
+    try {
+        const result = await chrome.storage.sync.get('blurWords');
+        const words = result.blurWords || [];
+        if (words.length === 0) {
+            // Remove body blur if no words
+            const style = document.createElement('style');
+            style.textContent = `
+                body { filter: none !important; }
+                .content-blur { 
+                    filter: blur(5px) !important;
+                    display: inline-block;
+                }
+            `;
+            (document.head || document.documentElement).appendChild(style);
+        }
+    } catch (error) {
+        console.error('Initial blur check error:', error);
     }
-`;
-(document.head || document.documentElement).appendChild(immediateStyle);
+})();
 
 let isInitialized = false;
 
-// Simplified blur function with case insensitive comparison
 function blurContent(words) {
-    if (!words?.length || !document.body) return;
+    if (!words?.length) {
+        // Remove body blur if no words
+        const style = document.createElement('style');
+        style.textContent = `
+            body { filter: none !important; }
+        `;
+        (document.head || document.documentElement).appendChild(style);
+        return;
+    }
     
     const elements = document.body.getElementsByTagName('*');
     for (const element of elements) {
@@ -28,13 +46,12 @@ function blurContent(words) {
         }
     }
     
-    // Remove only the body blur, keep element-specific blurs
-    immediateStyle.textContent = `
-        .content-blur { 
-            filter: blur(5px) !important;
-            display: inline-block;
-        }
+    // Remove body blur after processing
+    const style = document.createElement('style');
+    style.textContent = `
+        body { filter: none !important; }
     `;
+    (document.head || document.documentElement).appendChild(style);
 }
 
 // Initialize
