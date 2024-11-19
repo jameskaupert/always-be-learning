@@ -1,5 +1,5 @@
 # Blur My Info
-This is an AI-based attempt (Claude Haiku) at creating a Chrome extension to blur out specific text on a webpage.
+This is an AI-based (Claude Haiku) approach at creating a Chrome extension to blur out specific text on a webpage.
 
 # Installation
 1. Go to chrome://extensions/
