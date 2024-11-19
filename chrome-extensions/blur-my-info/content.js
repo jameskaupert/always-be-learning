@@ -1,10 +1,15 @@
-// Simple flag to track initialization
-let isInitialized = false;
+// Immediately inject both styles
+const immediateStyle = document.createElement('style');
+immediateStyle.textContent = `
+    body { filter: blur(5px) !important; }
+    .content-blur { 
+        filter: blur(5px) !important;
+        display: inline-block;
+    }
+`;
+(document.head || document.documentElement).appendChild(immediateStyle);
 
-// Create and inject CSS
-const style = document.createElement('style');
-style.textContent = '.content-blur { filter: blur(5px); }';
-document.documentElement.appendChild(style);
+let isInitialized = false;
 
 // Simplified blur function with case insensitive comparison
 function blurContent(words) {
@@ -15,10 +20,21 @@ function blurContent(words) {
         if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
             const text = element.textContent.toLowerCase();
             if (words.some(word => text.includes(word.toLowerCase()))) {
-                element.classList.add('content-blur');
+                const span = document.createElement('span');
+                span.textContent = element.textContent;
+                span.className = 'content-blur';
+                element.replaceWith(span);
             }
         }
     }
+    
+    // Remove only the body blur, keep element-specific blurs
+    immediateStyle.textContent = `
+        .content-blur { 
+            filter: blur(5px) !important;
+            display: inline-block;
+        }
+    `;
 }
 
 // Initialize
