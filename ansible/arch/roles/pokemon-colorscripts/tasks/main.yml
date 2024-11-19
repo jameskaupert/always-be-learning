@@ -1,0 +1,13 @@
+---
+- name: pokemon-colorscripts
+  block:
+  - name: pokemon-colorscripts - git clone
+    ansible.builtin.git:
+      repo: https://gitlab.com/phoneybadger/pokemon-colorscripts.git 
+      dest: /usr/local/pokemon-colorscripts
+      force: true
+  - name: pokemon-colorscripts - install
+    ansible.builtin.shell: |
+        ./install.sh
+    args:
+      chdir: /usr/local/pokemon-colorscripts

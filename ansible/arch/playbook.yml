@@ -43,4 +43,5 @@
     - { role: discord, tags: ['discord'] }
     - { role: lmms, tags: ['lmms'] }
     - { role: easyeffects, tags: ['easyeffects'] }
+    - { role: pokemon-colorscripts, tags: ['pokemon-colorscripts'] }
 
