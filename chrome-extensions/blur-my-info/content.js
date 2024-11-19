@@ -4,7 +4,6 @@
         const result = await chrome.storage.sync.get('blurWords');
         const words = result.blurWords || [];
         if (words.length === 0) {
-            // Remove body blur if no words
             const style = document.createElement('style');
             style.textContent = `
                 body { filter: none !important; }
@@ -21,10 +20,22 @@
 })();
 
 let isInitialized = false;
+let debounceTimeout;
+let patterns = []; // Store compiled RegExp patterns
+
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function compilePatterns(words) {
+    return words.map(word => {
+        const escapedWord = escapeRegExp(word);
+        return new RegExp(`\\b${escapedWord}\\b`, 'i');
+    });
+}
 
 function blurContent(words) {
     if (!words?.length) {
-        // Remove body blur if no words
         const style = document.createElement('style');
         style.textContent = `
             body { filter: none !important; }
@@ -33,11 +44,16 @@ function blurContent(words) {
         return;
     }
     
+    // Only compile patterns if words have changed
+    if (patterns.length !== words.length) {
+        patterns = compilePatterns(words);
+    }
+    
     const elements = document.body.getElementsByTagName('*');
     for (const element of elements) {
         if (element.childNodes.length === 1 && element.childNodes[0].nodeType === 3) {
-            const text = element.textContent.toLowerCase();
-            if (words.some(word => text.includes(word.toLowerCase()))) {
+            const text = element.textContent;
+            if (patterns.some(pattern => pattern.test(text))) {
                 const span = document.createElement('span');
                 span.textContent = element.textContent;
                 span.className = 'content-blur';
@@ -46,7 +62,6 @@ function blurContent(words) {
         }
     }
     
-    // Remove body blur after processing
     const style = document.createElement('style');
     style.textContent = `
         body { filter: none !important; }
@@ -54,7 +69,6 @@ function blurContent(words) {
     (document.head || document.documentElement).appendChild(style);
 }
 
-// Initialize
 async function initialize() {
     if (isInitialized) return;
     
@@ -62,11 +76,18 @@ async function initialize() {
         const result = await chrome.storage.sync.get('blurWords');
         const words = result.blurWords || [];
         
+        // Compile patterns once at initialization
+        patterns = compilePatterns(words);
+        
         // Initial blur
         blurContent(words);
         
-        // Observer for dynamic content
-        const observer = new MutationObserver(() => blurContent(words));
+        // Debounced observer
+        const observer = new MutationObserver(() => {
+            clearTimeout(debounceTimeout);
+            debounceTimeout = setTimeout(() => blurContent(words), 100);
+        });
+
         observer.observe(document.body, {
             childList: true,
             subtree: true
@@ -88,6 +109,8 @@ if (document.readyState === 'loading') {
 // Listen for updates
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === 'updateBlurs') {
+        // Recompile patterns when words are updated
+        patterns = compilePatterns(request.words);
         blurContent(request.words);
     }
 }); 
