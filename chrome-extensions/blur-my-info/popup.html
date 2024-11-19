@@ -5,13 +5,26 @@
 </head>
 <body>
   <div class="container">
-    <h2>Content Blur</h2>
-    <form id="blurForm">
-      <input type="text" id="textToBlur" placeholder="Enter sensitive text">
-      <button type="submit">Add to Blur List</button>
-    </form>
-    <div id="blurList"></div>
-    <button id="clearAll">Clear All</button>
+    <div class="add-section">
+      <form id="blurForm">
+        <input type="text" id="textToBlur" placeholder="Add new text to blur">
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
+    <div class="controls">
+      <button id="toggleList" class="warning-btn">Show Sensitive List</button>
+      <button id="exportList">Export List</button>
+      <button id="importList">Import List</button>
+    </div>
+
+    <div id="listSection" class="hidden">
+      <div class="warning-banner">
+        Sensitive content below
+      </div>
+      <div id="blurList"></div>
+      <button id="hideList" class="warning-btn">Hide List</button>
+    </div>
   </div>
   <script src="popup.js"></script>
 </body>
