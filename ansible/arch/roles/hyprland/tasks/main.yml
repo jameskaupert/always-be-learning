@@ -60,6 +60,22 @@
       name: greetd
       enabled: true
 
+  - name: Hyprland - Enable nvidia-suspend
+    ansible.builtin.systemd_service:
+      name: nvidia-suspend
+      enabled: true
+
+  - name: Hyprland - Enable nvidia-hibernate
+    ansible.builtin.systemd_service:
+      name: nvidia-hibernate
+      enabled: true
+
+
+  - name: Hyprland - Enable nvidia-resume
+    ansible.builtin.systemd_service:
+      name: nvidia-resume
+      enabled: true
+
   - name: Hyprland - Add user to seat group
     ansible.builtin.command:
       cmd: "usermod -aG seat {{ local_user }}"
