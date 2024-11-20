@@ -1,0 +1,17 @@
+---
+- name: VirtualBox - Install
+
+  pacman:
+    name:
+      - virtualbox-host-modules-arch
+      - virtualbox
+    state: present
+
+- name: VirtualBox - Add vboxusers group
+  ansible.builtin.group:
+    name: vboxusers
+    state: present
+
+- name: VirtualBox - Add user to vboxusers group
+  ansible.builtin.command:
+    cmd: "usermod -aG vboxusers {{ local_user }}"

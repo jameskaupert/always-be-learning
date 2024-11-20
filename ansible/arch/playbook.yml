@@ -6,6 +6,7 @@
   roles:
     - { role: base, tags: ['base'] }
     - { role: systemd, tags: ['systemd'] }
+    - { role: reflector, tags: ['reflector']}
     - { role: unzip, tags: ['unzip'] }
     - { role: ripgrep, tags: ['ripgrep'] }
     - { role: ffmpeg, tags: ['ffmpeg'] }
@@ -45,4 +46,4 @@
     - { role: lmms, tags: ['lmms'] }
     - { role: easyeffects, tags: ['easyeffects'] }
     - { role: pokemon-colorscripts, tags: ['pokemon-colorscripts'] }
-
+    - { role: virtualbox, tags: ['virtualbox']}

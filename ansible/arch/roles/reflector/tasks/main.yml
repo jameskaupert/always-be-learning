@@ -1,0 +1,5 @@
+---
+- name: reflector
+  pacman:
+    name: reflector
+    state: present
