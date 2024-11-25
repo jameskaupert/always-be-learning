@@ -3,3 +3,11 @@
   pacman:
     name: pyenv
     state: present
+
+- name: Pyenv - install specified version
+  ansible.builtin.command:
+    cmd: "pyenv install -s {{ python_version }}"
+
+- name: Pyenv - set global python version
+  ansible.builtin.command:
+    cmd: "pyenv global {{ python_version }}"

@@ -1,0 +1,5 @@
+---
+- name: tk
+  pacman:
+    name: tk
+    state: present

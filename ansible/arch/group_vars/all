@@ -5,5 +5,7 @@ dotfiles:
 
 local_user: localuser
 
+python_version: 3.13.0
+
 workspace:
   path: $HOME/workspace/github.com/jameskaupert

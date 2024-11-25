@@ -25,6 +25,7 @@
     - { role: go, tags: ['go'] }
     - { role: nodejs, tags: ['nodejs'] }
     - { role: python, tags: ['python'] }
+    - { role: tk, tags: ['tk']}
     - { role: rust, tags: ['rust'] }
     - { role: aws, tags: ['aws'] }
     - { role: fonts, tags: ['fonts'] }
