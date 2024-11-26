@@ -1,0 +1,53 @@
+/* Reset any potential conflicting styles */
+.secure-blur {
+    /* Force display */
+    display: inline !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    
+    /* Text blur effect */
+    color: transparent !important;
+    text-shadow: 0 0 8px rgba(0,0,0,0.95) !important;
+    
+    /* Background and border */
+    background-color: rgba(0,0,0,0.15) !important;
+    border-radius: 3px !important;
+    padding: 0 4px !important;
+    margin: 0 1px !important;
+    
+    /* Prevent selection and interaction */
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    pointer-events: none !important;
+    
+    /* Positioning */
+    position: relative !important;
+    z-index: 2147483647 !important; /* Maximum z-index value */
+    
+    /* Ensure proper text layout */
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    vertical-align: baseline !important;
+    
+    /* Box model */
+    box-sizing: content-box !important;
+    min-width: 1px !important;
+    max-width: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    
+    /* Reset transforms */
+    transform: none !important;
+    -webkit-transform: none !important;
+    
+    /* Force element to be visible */
+    clip: auto !important;
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+    mask: none !important;
+    -webkit-mask: none !important;
+    filter: none !important;
+    -webkit-filter: none !important;
+}

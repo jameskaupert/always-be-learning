@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Secure Text Blur",
+  "version": "1.0",
+  "description": "Securely blur sensitive words on web pages",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["styles.css"],
+      "js": ["src/text-blurrer.js", "content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
