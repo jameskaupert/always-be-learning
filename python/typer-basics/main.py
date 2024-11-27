@@ -1,6 +1,12 @@
+import os
 import typer
 
 app = typer.Typer()
+
+@app.command()
+def greet_environment():
+    name = os.getenv("MY_NAME", "World")
+    print(f"Hello {name} from Python")
 
 @app.command()
 def hello(name: str):
