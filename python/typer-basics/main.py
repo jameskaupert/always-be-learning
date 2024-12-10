@@ -9,8 +9,16 @@ def greet_environment():
     print(f"Hello {name} from Python")
 
 @app.command()
-def hello(name: str):
-    print(f"Hello, {name}")
+def hello(firstname: str, lastname: str = "", formal: bool = False):
+    """
+    Say hello to FIRSTNAME, optionally with a --lastname
+
+    If --formal used, say it more formally.
+    """
+    if formal:
+        print(f"Good day {firstname} {lastname}.")
+    else:
+        print(f"Hello, {firstname}")
 
 @app.command()
 def goodbye(name: str, formal: bool = False):
