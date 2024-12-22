@@ -1,5 +1,14 @@
 import os
 import typer
+from rich import print
+
+data = {
+    "name": "Rick",
+    "age": 42,
+    "items": [{"name": "Portal Gun"}, {"name": "Plumbus"}],
+    "active": True,
+    "affiliation": None,
+}
 
 app = typer.Typer()
 
@@ -26,6 +35,10 @@ def goodbye(name: str, formal: bool = False):
         print(f"Goodbye {name}. Have a great day!")
     else:
         print(f"Bye {name}!")
+
+@app.command()
+def print_color_data():
+    print(data)
 
 if __name__ == "__main__":
     app()
