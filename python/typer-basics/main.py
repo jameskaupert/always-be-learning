@@ -37,8 +37,11 @@ def goodbye(name: str, formal: bool = False):
         print(f"Bye {name}!")
 
 @app.command()
-def print_color_data():
-    print(data)
+def print_color_data(custom: bool = False):
+    if custom:
+        print("[bold red]Alert![/bold red]")
+    else:
+        print(data)
 
 if __name__ == "__main__":
     app()
