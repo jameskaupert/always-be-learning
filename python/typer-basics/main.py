@@ -32,14 +32,14 @@ def hello(firstname: str, lastname: str = "", formal: bool = False):
 @app.command()
 def goodbye(name: str, formal: bool = False):
     if formal:
-        print(f"Goodbye {name}. Have a great day!")
+        print(f"Goodbye {name}. Have a great day! :red_heart:")
     else:
         print(f"Bye {name}!")
 
 @app.command()
 def print_color_data(custom: bool = False):
     if custom:
-        print("[bold red]Alert![/bold red]")
+        print("[bold red]Alert![/bold red] :warning:")
     else:
         print(data)
 
