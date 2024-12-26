@@ -13,3 +13,9 @@
   pacman:
     name: ttf-font-awesome
     state: present
+
+- name: Noto Color Emoji
+  pacman:
+    name: noto-fonts-emoji
+    state: present
+
