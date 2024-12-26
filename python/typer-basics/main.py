@@ -1,6 +1,8 @@
 import os
 import typer
 from rich import print
+from rich.console import Console
+from rich.table import Table
 
 data = {
     "name": "Rick",
@@ -11,6 +13,7 @@ data = {
 }
 
 app = typer.Typer()
+console = Console()
 
 @app.command()
 def greet_environment():
@@ -42,6 +45,13 @@ def print_color_data(custom: bool = False):
         print("[bold red]Alert![/bold red] :warning:")
     else:
         print(data)
+
+@app.command()
+def print_table():
+    table = Table("Name", "Item")
+    table.add_row("Rick", "Portal Gun")
+    table.add_row("Morty", "Plumbus")
+    console.print(table)
 
 if __name__ == "__main__":
     app()
