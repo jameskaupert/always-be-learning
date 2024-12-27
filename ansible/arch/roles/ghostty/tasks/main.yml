@@ -1,0 +1,5 @@
+---
+- name: ghostty
+  pacman:
+    name: ghostty
+    state: present

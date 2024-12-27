@@ -30,6 +30,7 @@
     - { role: aws, tags: ['aws'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: kitty, tags: ['kitty'] }
+    - { role: ghostty, tags: ['ghostty'] }
     - { role: zsh, tags: ['zsh'] }
     - { role: hyprland, tags: ['hyprland'] }
     - { role: neovim, tags: ['neovim'] }
