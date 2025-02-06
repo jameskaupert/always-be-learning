@@ -1,0 +1,54 @@
+---
+- name: Godot
+  block:
+  - name: Godot - Download
+    ansible.builtin.get_url:
+      url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+      dest: ./Godot.zip
+
+  - name: Godot - Create Folder
+    become: true
+    become_user: root
+    ansible.builtin.file:
+      path: /usr/local/bin/godot
+      state: directory
+      owner: "{{ local_user }}"
+      group: "{{ local_user }}"
+
+  - name: Godot - Unzip
+    become: true
+    become_user: root
+    ansible.builtin.unarchive:
+      src: Godot.zip
+      dest: /usr/local/bin/godot
+      owner: "{{ local_user }}"
+      group: "{{ local_user }}"
+
+  - name: Godot - Rename File
+    become: true
+    become_user: root
+    ansible.builtin.command:
+      cmd: mv /usr/local/bin/godot/Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot/Godot
+
+  - name: Godot - Remove download
+    ansible.builtin.file:
+      path: Godot.zip
+      state: absent
+
+  - name: Godot - Download Desktop File
+    ansible.builtin.get_url:
+      url: https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop
+      dest: .
+
+  - name: Godot - Ensure folder exists
+    become: true
+    become_user: root
+    ansible.builtin.file:
+      path: /usr/local/share/applications
+      state: directory
+
+  - name: Godot - Move Desktop File
+    become: true
+    become_user: root
+    ansible.builtin.command:
+      cmd: mv org.godotengine.Godot.desktop /usr/local/share/applications/org.godotengine.Godot.desktop
