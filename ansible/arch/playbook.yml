@@ -33,6 +33,7 @@
     - { role: ghostty, tags: ['ghostty'] }
     - { role: zsh, tags: ['zsh'] }
     - { role: hyprland, tags: ['hyprland'] }
+    - { role: cosmic, tags: ['cosmic'] }
     - { role: neovim, tags: ['neovim'] }
     - { role: vi, tags: ['vi'] }
     - { role: dolphin, tags: ['dolphin'] }

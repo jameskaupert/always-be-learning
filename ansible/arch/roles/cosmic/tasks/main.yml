@@ -1,0 +1,6 @@
+---
+- name: cosmic
+  pacman:
+    name: cosmic
+    state: present
+
