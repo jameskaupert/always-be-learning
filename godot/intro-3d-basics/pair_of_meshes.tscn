@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bl74ko8ht114t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d313m"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ik5nh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lqt7c"]
+metallic = 1.0
+metallic_texture = SubResource("PlaceholderTexture2D_ik5nh")
+metallic_texture_channel = 2
+
+[sub_resource type="PrismMesh" id="PrismMesh_ggn5s"]
+material = SubResource("StandardMaterial3D_lqt7c")
+left_to_right = -0.4
+subdivide_width = 12
+subdivide_height = 5
+subdivide_depth = 2
+
+[node name="PairOfMeshes" type="Node3D"]
+
+[node name="CubeMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.22046, 0.288607, 0.342328, 0.247492, 0.393452, -1.21406, -0.373135, 1.20495, 0.314434, -1.3125, 0.983737, 1.45374)
+mesh = SubResource("BoxMesh_d313m")
+
+[node name="PrismMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.859789, -0.0669873, -0.506236, 0.476727, 0.25, -0.842752, 0.183013, -0.965926, -0.183013, 1.10494, 1, 1)
+mesh = SubResource("PrismMesh_ggn5s")
