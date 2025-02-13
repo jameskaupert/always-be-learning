@@ -56,4 +56,3 @@ transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 
 
 [node name="Player" parent="." instance=ExtResource("1_ofnq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.2, 0)
-torque_thrust = 800.0
