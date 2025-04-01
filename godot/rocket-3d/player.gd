@@ -22,12 +22,12 @@ func _on_body_entered(body: Node) -> void:
 	if "hazard" in body.get_groups():
 		crash_sequence()
 	if "goal" in body.get_groups():
-		complete_level()
+		complete_level(body.file_path)
 
 func crash_sequence() -> void :
 	print("KABOOM!")
 	get_tree().reload_current_scene()
 	
-func complete_level() -> void:
+func complete_level(next_level_file: String) -> void:
 	print("You Win!")
-	get_tree().quit()
+	get_tree().change_scene_to_file(next_level_file)
