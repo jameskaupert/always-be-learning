@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://blrqb1lqsavbi"]
+[gd_scene load_steps=10 format=3 uid="uid://c72upcylcbnq1"]
 
-[ext_resource type="PackedScene" uid="uid://bp8epuefivt6a" path="res://player.tscn" id="1_ofnq2"]
-[ext_resource type="Script" path="res://level/landing_pad.gd" id="1_we144"]
+[ext_resource type="Script" path="res://level/landing_pad.gd" id="1_vk86g"]
+[ext_resource type="PackedScene" uid="uid://bp8epuefivt6a" path="res://player.tscn" id="2_dp2ql"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cql7x"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -18,6 +18,9 @@ glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5splf"]
 albedo_color = Color(0.37, 0.27639, 0.1258, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bwywd"]
+albedo_color = Color(1, 0.430181, 0.999319, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kelvy"]
 albedo_color = Color(0.0903, 0.220518, 0.43, 1)
@@ -40,6 +43,12 @@ use_collision = true
 size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_5splf")
 
+[node name="Obstacle" type="CSGBox3D" parent="." groups=["hazard"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.57573, 0)
+use_collision = true
+size = Vector3(3, 2, 3)
+material = SubResource("StandardMaterial3D_bwywd")
+
 [node name="LaunchPad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.3, 0)
 use_collision = true
@@ -51,11 +60,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.3, 0)
 use_collision = true
 size = Vector3(2, 0.6, 2)
 material = SubResource("StandardMaterial3D_ym5ih")
-script = ExtResource("1_we144")
-file_path = "res://level/level_2.tscn"
+script = ExtResource("1_vk86g")
+file_path = "res://level/level.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 0, 2.562, 6.872)
 
-[node name="Player" parent="." instance=ExtResource("1_ofnq2")]
+[node name="Player" parent="." instance=ExtResource("2_dp2ql")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.2, 0)
