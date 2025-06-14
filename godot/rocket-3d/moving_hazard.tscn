@@ -11,7 +11,7 @@ size = Vector3(3, 3, 3)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j4awp"]
 points = PackedVector3Array(-1.5, -1.49971, -1.49971, 1.5, 1.49978, 1.49978, 1.5, -1.49978, 1.49978, 1.5, 1.49978, -1.49978, -1.5, 1.49971, 1.49971, 1.5, -1.49978, -1.49978, -1.5, -1.49971, 1.49971, -1.5, 1.49971, -1.49971)
 
-[node name="MovingHazard" type="AnimatableBody3D"]
+[node name="MovingHazard" type="AnimatableBody3D" groups=["hazard"]]
 script = ExtResource("1_mxkpj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
