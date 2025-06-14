@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://biabeknc60lrl"]
+[gd_scene load_steps=10 format=3 uid="uid://biabeknc60lrl"]
 
 [ext_resource type="Script" path="res://level/landing_pad.gd" id="1_20362"]
 [ext_resource type="PackedScene" uid="uid://bp8epuefivt6a" path="res://player.tscn" id="2_4ri0k"]
+[ext_resource type="PackedScene" uid="uid://lhdin8yoqc80" path="res://moving_hazard.tscn" id="3_dsuh5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cql7x"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -24,15 +25,6 @@ albedo_color = Color(0.0903, 0.220518, 0.43, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ym5ih"]
 albedo_color = Color(0.0903, 0.43, 0.288458, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boyrf"]
-albedo_color = Color(1, 1, 0.690196, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ldyvv"]
-size = Vector3(3, 3, 3)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j4awp"]
-points = PackedVector3Array(-1.5, -1.49971, -1.49971, 1.5, 1.49978, 1.49978, 1.5, -1.49978, 1.49978, 1.5, 1.49978, -1.49978, -1.5, 1.49971, 1.49971, 1.5, -1.49978, -1.49978, -1.5, -1.49971, 1.49971, -1.5, 1.49971, -1.49971)
 
 [node name="Level" type="Node3D"]
 
@@ -69,13 +61,6 @@ transform = Transform3D(1, 0, 0, 0, 0.980271, 0.197657, 0, -0.197657, 0.980271, 
 [node name="Player" parent="." instance=ExtResource("2_4ri0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.2, 0)
 
-[node name="MovingHazard" type="AnimatableBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingHazard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97588, 0)
-material_override = SubResource("StandardMaterial3D_boyrf")
-mesh = SubResource("BoxMesh_ldyvv")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingHazard"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97588, 0)
-shape = SubResource("ConvexPolygonShape3D_j4awp")
+[node name="MovingHazard" parent="." instance=ExtResource("3_dsuh5")]
+destination = Vector3(0, 2, 0)
+duration = 3.0
