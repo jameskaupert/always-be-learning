@@ -52,6 +52,9 @@ func crash_sequence() -> void :
 	print("KABOOM!")
 	set_process(false)
 	is_transitioning = true
+	left_booster_particles.emitting = false
+	right_booster_particles.emitting = false
+	booster_particles.emitting = false
 	
 	explosion_particles.emitting = true
 	explosion_audio.play()
@@ -64,6 +67,9 @@ func complete_level(next_level_file: String) -> void:
 	print("You Win!")
 	set_process(false)
 	is_transitioning = true
+	left_booster_particles.emitting = false
+	right_booster_particles.emitting = false
+	booster_particles.emitting = false
 	
 	success_particles.emitting = true
 	success_audio.play()
