@@ -78,20 +78,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1821, 0, 0)
 [node name="Rock_Cliff_Env_034" parent="MapBoundary/RockWall4" instance=ExtResource("2_81fyj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3287, 0, 0)
 
-[node name="Tree_Group_Vege2" parent="." instance=ExtResource("3_qg1ny")]
+[node name="Vegetation" type="Node3D" parent="."]
+
+[node name="Tree_Group_Vege2" parent="Vegetation" instance=ExtResource("3_qg1ny")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.528093, -7)
 
-[node name="Bush_Vege_22" parent="." instance=ExtResource("4_gh3c8")]
+[node name="Bush_Vege_22" parent="Vegetation" instance=ExtResource("4_gh3c8")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 0, 0, 8)
 
-[node name="Bush_Vege_24" parent="." instance=ExtResource("4_gh3c8")]
+[node name="Bush_Vege_24" parent="Vegetation" instance=ExtResource("4_gh3c8")]
 transform = Transform3D(0.677903, 0, -0.735151, 0, 1, 0, 0.735151, 0, 0.677903, -7.22181, 0, 3.81915)
 
-[node name="Bush_Vege_23" parent="." instance=ExtResource("4_gh3c8")]
+[node name="Bush_Vege_23" parent="Vegetation" instance=ExtResource("4_gh3c8")]
 transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, -7.55168, 0, -13.3623)
 
-[node name="Bush_Vege_25" parent="." instance=ExtResource("4_gh3c8")]
+[node name="Bush_Vege_25" parent="Vegetation" instance=ExtResource("4_gh3c8")]
 transform = Transform3D(-0.0329808, 0, 0.999456, 0, 1, 0, -0.999456, 0, -0.0329808, -10.1507, 0, -4.66851)
 
-[node name="Topiary_Tree_Vege_012" parent="." instance=ExtResource("5_5yeog")]
+[node name="Topiary_Tree_Vege_012" parent="Vegetation" instance=ExtResource("5_5yeog")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 11)
