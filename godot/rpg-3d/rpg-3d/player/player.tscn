@@ -24,7 +24,7 @@ shape = SubResource("SeparationRayShape3D_05dia")
 spring_length = 4.0
 script = ExtResource("2_3arg1")
 target = NodePath("../HorizontalPivot/VerticalPivot")
-decay = 15.5
+decay = 16.0
 
 [node name="Camera3D" type="Camera3D" parent="SmoothCameraArm"]
 
