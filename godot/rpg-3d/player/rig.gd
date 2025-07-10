@@ -3,6 +3,12 @@ class_name Rig
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var skeleton_3d: Skeleton3D = $CharacterRig/GameRig/Skeleton3D
+
+@onready var villager_meshes: Array[MeshInstance3D] = [
+	$CharacterRig/GameRig/Skeleton3D/Villager_01,
+	$CharacterRig/GameRig/Skeleton3D/Villager_02
+	]
 
 @export var animation_speed: float = 9.0
 
@@ -30,3 +36,8 @@ func is_idle() -> bool:
 	
 func is_slashing() -> bool:
 	return playback.get_current_node() == "Slash"
+
+func set_active_mesh(active_mesh: MeshInstance3D) -> void:
+	for child in skeleton_3d.get_children():
+		child.visible = false
+	active_mesh.visible = true
