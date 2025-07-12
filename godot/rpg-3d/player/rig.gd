@@ -1,6 +1,8 @@
 extends Node3D
 class_name Rig
 
+signal heavy_attack()
+
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var skeleton_3d: Skeleton3D = $CharacterRig/GameRig/Skeleton3D
@@ -41,3 +43,8 @@ func set_active_mesh(active_mesh: MeshInstance3D) -> void:
 	for child in skeleton_3d.get_children():
 		child.visible = false
 	active_mesh.visible = true
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Overhead":
+		heavy_attack.emit()
