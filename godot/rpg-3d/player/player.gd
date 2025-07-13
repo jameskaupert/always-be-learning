@@ -1,6 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
+
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
@@ -21,11 +22,13 @@ var _attack_direction := Vector3.ZERO
 @onready var rig_pivot: Node3D = $RigPivot
 @onready var rig: Rig = $RigPivot/Rig
 @onready var attack_cast: RayCast3D = %AttackCast
-
+@onready var health_component: HealthComponent = $HealthComponent
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	health_component.update_max_health(30.0)
 
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()
@@ -114,3 +117,9 @@ func handle_slashing_physics_frame(delta: float) -> void:
 	look_toward_direction(_attack_direction, delta)
 	
 	attack_cast.deal_damage()
+
+
+func _on_health_component_defeat() -> void:
+	rig.travel("Defeat")
+	collision_shape_3d.disabled = true
+	set_physics_process(false)
