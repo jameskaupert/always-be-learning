@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://pc8hj36uc7xo"]
+
+[node name="Dash" type="Node3D"]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
