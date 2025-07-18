@@ -3,7 +3,7 @@
   block:
   - name: Godot - Download
     ansible.builtin.get_url:
-      url: https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_linux.x86_64.zip
+      url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
       dest: ./Godot.zip
 
   - name: Godot - Create Folder
@@ -28,7 +28,7 @@
     become: true
     become_user: root
     ansible.builtin.command:
-      cmd: mv /usr/local/bin/godot/Godot_v4.3-stable_linux.x86_64 /usr/local/bin/godot/Godot
+      cmd: mv /usr/local/bin/godot/Godot_v4.4.1-stable_linux.x86_64 /usr/local/bin/godot/Godot
 
   - name: Godot - Remove download
     ansible.builtin.file:
