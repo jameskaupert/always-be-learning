@@ -22,6 +22,7 @@
     - { role: mpv, tags: ['mpv'] }
     - { role: swappy, tags: ['swappy'] }
     - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: docker, tags: ['docker']}
     - { role: go, tags: ['go'] }
     - { role: nodejs, tags: ['nodejs'] }
     - { role: python, tags: ['python'] }
