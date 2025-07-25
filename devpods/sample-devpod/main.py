@@ -1,7 +1,6 @@
 print("Hello world!")
 
-def newFunc(thing: str):
-    print(f"What's up, {thing}?")
+def hello(name: str):
+    print(f"Hello, {name}")
 
-newFunc("you")
-
+hello("world")
