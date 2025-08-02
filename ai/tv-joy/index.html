@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+        <header class="hero-section">
+            <h1 class="hero-title">TV Show Explorer</h1>
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search for TV shows...">
+                <button id="search-btn" class="search-btn">Search</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="carousel-section">
+                <h2 class="section-title">Trending Today</h2>
+                <div class="carousel" id="trending-carousel">
+                    <button class="carousel-nav prev" data-direction="prev">‹</button>
+                    <div class="carousel-track">
+                    </div>
+                    <button class="carousel-nav next" data-direction="next">›</button>
+                </div>
+            </section>
+
+            <section class="carousel-section">
+                <h2 class="section-title">Most Popular</h2>
+                <div class="carousel" id="popular-carousel">
+                    <button class="carousel-nav prev" data-direction="prev">‹</button>
+                    <div class="carousel-track">
+                    </div>
+                    <button class="carousel-nav next" data-direction="next">›</button>
+                </div>
+            </section>
+        </main>
+
+        <div id="show-detail" class="show-detail hidden">
+            <button class="back-btn" id="back-btn">← Back</button>
+            <div class="detail-content">
+                <div class="detail-header">
+                    <img class="detail-poster" src="" alt="">
+                    <div class="detail-info">
+                        <h1 class="detail-title"></h1>
+                        <div class="detail-rating"></div>
+                        <p class="detail-overview"></p>
+                        <div class="detail-meta">
+                            <span class="detail-first-air"></span>
+                            <span class="detail-genres"></span>
+                            <span class="detail-streaming"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-sections">
+                    <div class="cast-section">
+                        <h3>Cast</h3>
+                        <div class="cast-grid"></div>
+                    </div>
+                    <div class="seasons-section">
+                        <h3>Seasons</h3>
+                        <div class="seasons-list"></div>
+                    </div>
+                    <div class="similar-section">
+                        <h3>Similar Shows</h3>
+                        <div class="similar-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
